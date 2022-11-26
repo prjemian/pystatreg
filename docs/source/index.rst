@@ -11,6 +11,7 @@ pysumreg
    :caption: Contents:
 
    sum_registers
+   changes
 
 :release:   |release|
 :version:   |version|
