@@ -9,7 +9,7 @@ try:
 
     __version__ = get_version()
     del get_version
-except (LookupError, ModuleNotFoundError):
+except (LookupError, ModuleNotFoundError, Exception):
     from importlib.metadata import version
 
     __version__ = version("pysumreg")

@@ -14,15 +14,6 @@ import pysumreg
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-# project = pysumreg.__package_name__
-# copyright = pysumreg.__copyright__
-# author = pysumreg.__author__
-
-# project = "pysumreg"
-# copyright = "2022, Pete R. Jemian"
-# author = "Pete R. Jemian"
-# release = "0.0.1"
-
 root_path = pathlib.Path(__file__).parent.parent.parent
 parser = configparser.ConfigParser()
 parser.read(root_path / "setup.cfg")

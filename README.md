@@ -15,9 +15,9 @@ CONTENTS
 
 ## Why use this package?
 
-Use this package to obtain summary statistics of a list of :math:`(x, y)` pairs
-when the pairs are presented in sequence, such as from a control system.  It is
-not necessary to retain the entire list in memory, this package will retain the
+Use this package to obtain summary statistics of a list of $(x, y)$ pairs when
+the pairs are presented in sequence, such as from a control system.  It is not
+necessary to retain the entire list in memory, this package will retain the
 cumulative values necessary to compute all analytical results.
 
 There are no external dependencies on add-on packages such as numpy or

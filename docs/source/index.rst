@@ -6,16 +6,42 @@
 pysumreg
 =========
 
+Statistics of list of :math:`(x, y)` pairs from calculator-style summation registers.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    sum_registers
    changes
+   license
 
 :release:   |release|
 :version:   |version|
 :published: |today|
+
+Why use this package?
+========================
+
+Use this package to obtain summary statistics of a list of :math:`(x, y)` pairs
+when the pairs are presented in sequence, such as from a control system.  It is
+not necessary to retain the entire list in memory, this package will retain the
+cumulative values necessary to compute all analytical results.
+
+There are no external dependencies on add-on packages such as numpy or
+scipy.  Only the *math* (https://docs.python.org/3/library/math.html) package
+from the Python Standard Library is used.
+
+Installation
+========================
+
+``pip install pysumreg``
+
+About
+========================
+
+* documentation: https://prjemian.github.io/pysumreg
+* source: https://github.com/prjemian/pysumreg
 
 Examples
 ========
@@ -23,7 +49,6 @@ Examples
 We start these examples by first creating a set of registers:
 
 .. code-block:: python
-   :linenos:
 
    import pysumreg
    reg = pysumreg.SummationRegisters()
@@ -34,7 +59,6 @@ Mean and Standard Deviation
 Find the mean and standard deviation of a set of ordered pairs:
 
 .. code-block:: python
-   :linenos:
 
    reg.clear()
    reg.add(1, -1)
@@ -44,6 +68,11 @@ Find the mean and standard deviation of a set of ordered pairs:
    print(f"{reg.stddev_x=}")
    print(f"{reg.mean_y=}")
    print(f"{reg.stddev_y=}")
+   print(f"{reg.min_x=}")
+   print(f"{reg.max_x=}")
+   print(f"{reg.min_y=}")
+   print(f"{reg.max_y=}")
+   print(f"{reg.x_at_max_y=}")
 
 which prints these results::
 
@@ -51,6 +80,11 @@ which prints these results::
    reg.stddev_x=1.0
    reg.mean_y=-2.0
    reg.stddev_y=1.0
+   reg.min_x=1
+   reg.max_x=3
+   reg.min_y=-3
+   reg.max_y=-1
+   reg.x_at_max_y=1
 
 Linear Analysis
 ---------------
@@ -63,7 +97,6 @@ line).  Zero means that the :math:`x` and :math:`y` values are not correlated,
 no linear fit.
 
 .. code-block:: python
-   :linenos:
 
    reg.clear()
    reg.add(1, -1)
@@ -87,7 +120,6 @@ center and width.  We obtain the width (:math:`~2\sigma_c`) from the variance
 (:math:`\sigma_c^2`) of the :math:`x` values weighted by the :math:`y` values.
 
 .. code-block:: python
-   :linenos:
 
    reg.clear()
    reg.add(1, 0)
@@ -108,7 +140,6 @@ the variance. We need more data (with :math:`y` values that are not zero) to
 obtain a non-zero :math:`\sigma_c`:
 
 .. code-block:: python
-   :linenos:
 
    reg.add(1.5, 0.5)
    reg.add(2.5, 0.5)
