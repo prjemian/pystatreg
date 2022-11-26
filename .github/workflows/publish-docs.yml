@@ -1,5 +1,23 @@
 name: Publish Sphinx Docs to GitHub Pages
-on: [push]
+
+on:
+  # Build the docs on pushes to main branch, PRs to main branch, and new tags.
+  # Publish only on demand.
+  push:
+    branches:
+      - main
+    tags:
+      - '*'  # all tags
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:   # allow manual triggering
+    inputs:
+      deploy:
+        description: 'Deploy documentation'
+        type: boolean
+        required: true
+        default: false
 
 # see: https://sphinx-notes.github.io/pages/
 # see: https://github.com/marketplace/actions/sphinx-to-github-pages
@@ -41,8 +59,8 @@ jobs:
         # path to conf.py directory
         documentation_path: docs/source
 
-    - name: Push changes if refs/tags
-      if: startsWith(github.ref, 'refs/tags')
+    - name: Publish (push gh-pages branch) only on demand
+      if: ${{ github.event.inputs.deploy }}
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
