@@ -175,7 +175,7 @@ class SummationRegisters:
         r"""
         Standard deviation of :math:`x` values.
 
-        .. math:: \sigma_x^2 = {{\sum{x^2} - {(\sum{x}\sum{x})}/n} \over {n-1}}
+        .. math:: \sigma_x^2 = {{\sum{x^2} - \bar{x}\sum{x}} \over {n-1}}
         """
         return math.sqrt((self.XX - self.mean_x * self.X) / (self.n - 1))
 
@@ -184,7 +184,7 @@ class SummationRegisters:
         r"""
         Standard deviation of :math:`y` values.
 
-        .. math:: \sigma_y^2 = {{\sum{y^2} - {(\sum{y}\sum{y})}/n} \over {n-1}}
+        .. math:: \sigma_y^2 = {{\sum{y^2} - \bar{y}\sum{y}} \over {n-1}}
         """
         return math.sqrt((self.YY - self.mean_y * self.Y) / (self.n - 1))
 
