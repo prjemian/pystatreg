@@ -16,10 +16,6 @@ Statistics of list of :math:`(x, y)` pairs from calculator-style summation regis
    changes
    license
 
-:release:   |release|
-:version:   |version|
-:published: |today|
-
 Why use this package?
 ========================
 
@@ -40,8 +36,11 @@ Installation
 About
 ========================
 
-* documentation: https://prjemian.github.io/pysumreg
-* source: https://github.com/prjemian/pysumreg
+:documentation: https://prjemian.github.io/pysumreg
+:source: https://github.com/prjemian/pysumreg
+:version:   |version|
+:release:   |release|
+:published: |today|
 
 Examples
 ========
