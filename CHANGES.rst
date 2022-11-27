@@ -15,10 +15,20 @@ Change History
 ##############
 
 ..
-   1.0.1
+   1.0.2
    ******
 
-   release expected by 2023-01-05
+   release expected TBA
+
+1.0.1
+******
+
+release expected by 2022-11-30
+
+Maintenance
+-----------
+
+* Removed unnecessary run-time packagaing requirements.
 
 1.0.0
 ******

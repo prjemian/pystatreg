@@ -24,6 +24,11 @@ There are no external dependencies on add-on packages such as numpy or
 scipy.  Only the [math](https://docs.python.org/3/library/math.html) package
 from the Python Standard Library is used.
 
+Statistics may be calculated at any time from the summation registers.
+
+The $(x, y)$ values may be entered in any order.  It is not necessary to
+sort them.
+
 ## Examples
 
 ```python
