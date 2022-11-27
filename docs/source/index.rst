@@ -36,8 +36,13 @@ sort them.
 Installation
 ========================
 
-- ``pip install pysumreg``
-- ``conda install -c conda-forge pysumreg``
+This package may be installed by any of these commands:
+
+* ``pip install pysumreg``
+* ``conda install -c conda-forge pysumreg``
+* ``conda install -c conda-forge pysumreg``
+* ``mamba install -c conda-forge pysumreg``
+* ``micromamba install -c conda-forge pysumreg``
 
 About
 ========================

@@ -109,9 +109,22 @@ reg.sigma=0.3535533905932738
 
 ## Installation
 
-`pip install pysumreg`
+This package may be installed by any of these commands:
+
+- `pip install pysumreg`
+- `conda install -c conda-forge pysumreg`
+- `mamba install -c conda-forge pysumreg`
+- `micromamba install -c conda-forge pysumreg`
 
 ## About
+
+| Release | PyPI | Conda-forge | Platforms |
+| --- | --- | --- | --- |
+| [![Release](https://img.shields.io/github/release/prjemian/pysumreg.svg)](https://github.com/prjemian/pysumreg/releases) | [![PyPI](https://img.shields.io/pypi/v/pysumreg.svg)](https://pypi.python.org/pypi/pysumreg) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pysumreg.svg)](https://anaconda.org/conda-forge/pysumreg) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pysumreg.svg)](https://anaconda.org/conda-forge/pysumreg) |
+
+| Python | Unit Tests | Code Coverage |
+| --- | --- | --- |
+| [![Python](https://img.shields.io/pypi/pyversions/pysumreg.svg)](https://pypi.python.org/pypi/pysumreg) | ![Unit Tests](https://github.com/prjemian/pysumreg/workflows/Unit%20Tests/badge.svg) | [![Coverage Status](https://coveralls.io/repos/github/prjemian/pysumreg/badge.svg?branch=main)](https://coveralls.io/github/prjemian/pysumreg?branch=main) |
 
 - documentation:
     https://prjemian.github.io/pysumreg
