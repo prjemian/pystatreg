@@ -31,7 +31,8 @@ from the Python Standard Library is used.
 Installation
 ========================
 
-``pip install pysumreg``
+- ``pip install pysumreg``
+- ``conda install -c conda-forge pysumreg``
 
 About
 ========================
