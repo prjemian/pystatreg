@@ -67,7 +67,7 @@ class SummationRegisters:
         sigma
     """.split()
     _registers = "n X Y XX XY XXY YY".split()
-    _extrema_names = "min_x max_x min_y max_y x_at_max_y".split()
+    _extrema_names = "min_x max_x min_y max_y x_at_max_y x_at_min_y".split()
 
     def __init__(self) -> None:
         self.clear()
@@ -86,6 +86,7 @@ class SummationRegisters:
         self.min_x = None
         self.min_y = None
         self.x_at_max_y = None
+        self.x_at_min_y = None
 
     def _assess_extrema(self, x, y):
         """Assess min & max of x & y."""
@@ -93,6 +94,8 @@ class SummationRegisters:
         self.max_x = max(x, self.max_x or x)
         self.min_y = min(y, self.min_y or y)
         self.max_y = max(y, self.max_y or y)
+        if y == self.min_y:
+            self.x_at_min_y = x
         if y == self.max_y:
             self.x_at_max_y = x
 
