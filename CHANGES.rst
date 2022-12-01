@@ -20,7 +20,7 @@ Change History
 
    release expected TBA
 
-1.0.3
+1.0.2
 ******
 
 released 2022-12-01
