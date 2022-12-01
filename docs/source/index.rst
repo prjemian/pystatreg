@@ -83,6 +83,7 @@ Find the mean and standard deviation of a set of ordered pairs:
    print(f"{reg.min_y=}")
    print(f"{reg.max_y=}")
    print(f"{reg.x_at_max_y=}")
+   print(f"{reg.x_at_min_y=}")
 
 which prints these results::
 
@@ -95,6 +96,7 @@ which prints these results::
    reg.min_y=-3
    reg.max_y=-1
    reg.x_at_max_y=1
+   reg.x_at_min_y=3
 
 Linear Analysis
 ---------------
@@ -195,7 +197,8 @@ which prints these results (re-formatted for display here)::
       slope=0.0,
       stddev_x=0.7905694150420949,
       stddev_y=0.4183300132670378,
-      x_at_max_y=2
+      x_at_max_y=2,
+      x_at_min_y=3
     )
 
 Indices and tables

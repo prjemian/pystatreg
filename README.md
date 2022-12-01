@@ -53,6 +53,7 @@ In [3]: reg.clear()
    ...: print(f"{reg.min_y=}")
    ...: print(f"{reg.max_y=}")
    ...: print(f"{reg.x_at_max_y=}")
+   ...: print(f"{reg.x_at_min_y=}")
    ...: 
 reg.mean_x=2.0
 reg.stddev_x=1.0
@@ -63,6 +64,7 @@ reg.max_x=3
 reg.min_y=-3
 reg.max_y=-1
 reg.x_at_max_y=1
+reg.x_at_min_y=3
 ```
 
 ### linear regression & correlation coefficient

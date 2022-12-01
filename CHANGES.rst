@@ -15,10 +15,20 @@ Change History
 ##############
 
 ..
-   1.0.2
+   1.0.3
    ******
 
    release expected TBA
+
+1.0.3
+******
+
+released 2022-12-01
+
+New Features
+-----------
+
+* Added ``x_at_min_y``
 
 1.0.1
 ******
