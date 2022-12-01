@@ -33,6 +33,7 @@ def test_sample1():
     assert reg.min_y == min(y_arr)
     assert reg.max_y == max(y_arr)
     assert reg.x_at_max_y == x_arr[y_arr.index(reg.max_y)]
+    assert reg.x_at_min_y == x_arr[y_arr.index(reg.min_y)]
 
     assert reg.n == 10
     assert round(reg.X, 3) == 55
@@ -190,7 +191,7 @@ def test_exceptions(data, exception):
     [
         # fmt: off
         [
-            dict(x=[1, 2, 3], y=[1, 5, 2]),
+            dict(x=[2, 1, 3], y=[5, 1, 2]),
             dict(
                 mean_x=2,
                 mean_y=2.67,
@@ -206,6 +207,7 @@ def test_exceptions(data, exception):
                 min_y=1,
                 max_y=5,
                 x_at_max_y=2,
+                x_at_min_y=1,
                 n=3,
                 X=6,
                 Y=8,
