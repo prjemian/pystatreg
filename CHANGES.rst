@@ -23,7 +23,7 @@ Change History
 1.0.4
 ******
 
-release expected 2022-12
+released 2022-12-22
 
 Fixes
 --------------
