@@ -23,7 +23,7 @@ Change History
 1.0.4
 ******
 
-release expected TBA
+release expected 2022-12
 
 Fixes
 --------------
