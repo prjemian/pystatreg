@@ -63,7 +63,7 @@ jobs:
 
     - name: Install package
       run: |
-        pip install --no-deps -e .
+        pip install --no-deps -e . -vv
         python -c "import pysumreg"
 
     - name: Run tests with pytest & coverage
