@@ -6,8 +6,10 @@ from .sum_registers import SummationRegisters
 
 try:
     from setuptools_scm import get_version
+    import pathlib
 
-    __version__ = get_version()
+    path = str(pathlib.Path(__file__).parent)
+    __version__ = get_version(root="..", relative_to=__file__)
     del get_version
 except (LookupError, ModuleNotFoundError, Exception):
     from importlib.metadata import version

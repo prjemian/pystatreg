@@ -15,10 +15,20 @@ Change History
 ##############
 
 ..
-   1.0.3
+   1.0.
    ******
 
    release expected TBA
+
+1.0.4
+******
+
+release expected TBA
+
+Fixes
+--------------
+
+* Version not reported correctly when run in certain directories.
 
 1.0.3
 ******
@@ -26,7 +36,7 @@ Change History
 released 2022-12-01
 
 New Features
------------
+--------------
 
 * Added ``x_at_min_y``
 
