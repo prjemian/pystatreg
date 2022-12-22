@@ -6,15 +6,14 @@ from .sum_registers import SummationRegisters
 
 try:
     from setuptools_scm import get_version
-    import pathlib
 
-    path = str(pathlib.Path(__file__).parent)
     __version__ = get_version(root="..", relative_to=__file__)
     del get_version
 except (LookupError, ModuleNotFoundError, Exception):
     from importlib.metadata import version
 
     __version__ = version("pysumreg")
+    del version
 
 # -----------------------------------------------------------------------------
 # :author:    Pete R. Jemian
