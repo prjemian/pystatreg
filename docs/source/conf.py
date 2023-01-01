@@ -10,6 +10,9 @@ import sys
 sys.path.insert(0, str(pathlib.Path().absolute().parent.parent))
 import pysumreg
 
+release = pysumreg.__version__
+version = ".".join(release.split(".")[:2])
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
@@ -23,12 +26,6 @@ copyright = metadata["copyright"]
 author = metadata["author"]
 description = metadata["description"]
 rst_prolog = f".. |author| replace:: {author}"
-
-# -- Special handling for version numbers ------------------------------------
-# https://github.com/pypa/setuptools_scm#usage-from-sphinx
-
-release = pysumreg.__version__
-version = ".".join(release.split(".")[:2])
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
