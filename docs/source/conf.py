@@ -10,11 +10,11 @@ import sys
 sys.path.insert(0, str(pathlib.Path().absolute().parent.parent))
 import pysumreg
 
-release = pysumreg.__version__
-version = ".".join(release.split(".")[:2])
-
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+
+release = pysumreg.__version__
+version = ".".join(release.split(".")[:2])
 
 root_path = pathlib.Path(__file__).parent.parent.parent
 parser = configparser.ConfigParser()
@@ -58,7 +58,7 @@ html_theme_options = {
    },
    "switcher": {
       "json_url": "https://raw.githubusercontent.com/prjemian/pysumreg/main/docs/source/_static/switcher.json",
-      # TODO: "json_url": "https://prjemian.github.io/_static/switcher.json",
+      # TODO: "json_url": "https://prjemian.github.io/pysumreg/_static/switcher.json",
       "version_match": "dev" if ".dev" in release else release,
    },
    "navbar_start": ["navbar-logo", "version-switcher"]
