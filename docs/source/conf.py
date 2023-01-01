@@ -55,4 +55,10 @@ today_fmt = "%Y-%m-%d %H:%M"
 
 html_static_path = ["_static"]
 html_theme = "pydata_sphinx_theme"
+html_theme_options = {
+   "logo": {
+      "image_dark": "pysumreg-logo-light.png",
+      "image_light": "pysumreg-logo-dark.png",
+   }
+}
 html_title = "PySumReg"
