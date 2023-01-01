@@ -28,7 +28,7 @@ rst_prolog = f".. |author| replace:: {author}"
 # -- Special handling for version numbers ------------------------------------
 # https://github.com/pypa/setuptools_scm#usage-from-sphinx
 
-release = version(project)
+release = pysumreg.__version__
 version = ".".join(release.split(".")[:2])
 
 # -- General configuration ---------------------------------------------------
@@ -59,6 +59,12 @@ html_theme_options = {
    "logo": {
       "image_dark": "pysumreg-logo-light.png",
       "image_light": "pysumreg-logo-dark.png",
-   }
+   },
+   "switcher": {
+      "json_url": "https://raw.githubusercontent.com/prjemian/pysumreg/main/docs/source/_static/switcher.json",
+      # TODO: "json_url": "https://prjemian.github.io/_static/switcher.json",
+      "version_match": "dev" if ".dev" in release else release,
+   },
+   "navbar_start": ["navbar-logo", "version-switcher"]
 }
 html_title = "PySumReg"
