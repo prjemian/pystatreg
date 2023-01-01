@@ -5,7 +5,8 @@
         "url": "https://prjemian.github.io/pysumreg/"
     },
     {
-        "name": "1.0.5.dev",
+        "name": "latest (1.0.5.dev)",
         "version": "latest",
         "url": "https://prjemian.github.io/pysumreg/"
-    }]
+    }
+]
