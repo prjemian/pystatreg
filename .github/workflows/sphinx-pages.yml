@@ -55,7 +55,7 @@ jobs:
 
       - name: Install Sphinx build requirements
         run: |
-          pip install setuptools-scm "sphinx<6" pydata-sphinx-theme
+          pip install setuptools-scm sphinx pydata-sphinx-theme
           echo "--------------- diagnostic pip list ---------------"
           pip list
 
