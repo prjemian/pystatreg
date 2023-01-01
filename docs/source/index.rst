@@ -8,14 +8,6 @@ pysumreg
 
 Statistics of list of :math:`(x, y)` pairs from calculator-style summation registers.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   sum_registers
-   changes
-   license
-
 Why use this package?
 ========================
 
@@ -32,26 +24,6 @@ Statistics may be calculated at any time from the summation registers.
 
 The :math:`(x, y)` values may be entered in any order.  It is not necessary to
 sort them.
-
-Installation
-========================
-
-This package may be installed by any of these commands:
-
-* ``pip install pysumreg``
-* ``conda install -c conda-forge pysumreg``
-* ``conda install -c conda-forge pysumreg``
-* ``mamba install -c conda-forge pysumreg``
-* ``micromamba install -c conda-forge pysumreg``
-
-About
-========================
-
-:documentation: https://prjemian.github.io/pysumreg
-:source: https://github.com/prjemian/pysumreg
-:version:   |version|
-:release:   |release|
-:published: |today|
 
 Examples
 ========
@@ -200,6 +172,36 @@ which prints these results (re-formatted for display here)::
       x_at_max_y=2,
       x_at_min_y=3
     )
+
+-----
+
+Installation
+========================
+
+This package may be installed by any of these commands:
+
+* ``pip install pysumreg``
+* ``conda install -c conda-forge pysumreg``
+* ``conda install -c conda-forge pysumreg``
+* ``mamba install -c conda-forge pysumreg``
+* ``micromamba install -c conda-forge pysumreg``
+
+About
+========================
+
+:documentation: https://prjemian.github.io/pysumreg
+:source: https://github.com/prjemian/pysumreg
+:version:   |version|
+:release:   |release|
+:published: |today|
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   sum_registers
+   changes
+   license
 
 Indices and tables
 ==================
