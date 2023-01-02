@@ -189,7 +189,7 @@ This package may be installed by any of these commands:
 About
 ========================
 
-:documentation: https://prjemian.github.io/pysumreg
+:documentation: https://prjemian.github.io/pysumreg/latest
 :source: https://github.com/prjemian/pysumreg
 :version:   |version|
 :release:   |release|
