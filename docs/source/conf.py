@@ -53,8 +53,8 @@ html_static_path = ["_static"]
 html_theme = "pydata_sphinx_theme"
 html_theme_options = {
    "logo": {
-      "image_dark": "pysumreg-logo-light.png",
-      "image_light": "pysumreg-logo-dark.png",
+      "image_dark": "pysumreg-logo-dark.png",
+      "image_light": "pysumreg-logo-light.png",
    },
    "switcher": {
       "json_url": "https://prjemian.github.io/pysumreg/_static/switcher.json",
