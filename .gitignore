@@ -132,3 +132,5 @@ dmypy.json
 .coveragerc
 
 _version.py
+
+_dev_*
