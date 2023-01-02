@@ -1,12 +1,27 @@
 [
     {
-        "name": "1.0.5.dev",
+        "name": "1.0.5 (development)",
         "version": "dev",
-        "url": "https://prjemian.github.io/pysumreg/"
+        "url": "https://prjemian.github.io/pysumreg/dev"
     },
     {
-        "name": "latest (1.0.5.dev)",
-        "version": "latest",
-        "url": "https://prjemian.github.io/pysumreg/"
+        "name": "1.0.4 (latest release)",
+        "version": "1.0.4",
+        "url": "https://prjemian.github.io/pysumreg/1.0.4"
+    },
+    {
+        "name": "1.0.3",
+        "version": "1.0.3",
+        "url": "https://prjemian.github.io/pysumreg/1.0.3"
+    },
+    {
+        "name": "1.0.1",
+        "version": "1.0.1",
+        "url": "https://prjemian.github.io/pysumreg/1.0.1"
+    },
+    {
+        "name": "1.0.0",
+        "version": "1.0.0",
+        "url": "https://prjemian.github.io/pysumreg/1.0.0"
     }
 ]
