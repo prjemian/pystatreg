@@ -63,6 +63,7 @@ jobs:
         run: |
           echo "TEMPDIR=$(mktemp -d)" >> ${GITHUB_ENV}
           echo "VERSION=$(./setup.py --version)" >> ${GITHUB_ENV}
+          echo "LATEST_RELEASE=1.0.4" >> ${GITHUB_ENV}
 
       - name: Show Environment variables
         run: |
@@ -79,7 +80,8 @@ jobs:
           tar cf - * | (cd .. && tar xf -)
           cd ..
           /bin/rm -rf ./pysumreg-gh-pages
-          /bin/rm -rf dev *.dev*
+          /bin/rm -rf dev *.dev* latest
+          ln -s "./${LATEST_RELEASE}" ./latest
           touch .nojekyll
           ls -lAFgh
           popd
@@ -100,8 +102,9 @@ jobs:
           # get the redirect page
           cp ./.github/index.html "${TEMPDIR}"
 
-          # # TODO: build the switcher file dynamically
-          # # make the switcher file
+          # make the switcher file
+          python ./.github/make_switcher.py > "${TEMPDIR}/_static/switcher.json"
+          cat "${TEMPDIR}/_static/switcher.json"
           # mkdir "${TEMPDIR}/_static"
           # cp ./docs/source/_static/switcher.json "${TEMPDIR}/_static"
 
