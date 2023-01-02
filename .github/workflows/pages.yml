@@ -73,9 +73,7 @@ jobs:
       - name: Get existing gh-pages branch
         run: |
           wget https://github.com/prjemian/pysumreg/archive/refs/heads/gh-pages.zip
-          # export ZIPTEMP=$(mktemp -d)
           unzip -q -o -d "${TEMPDIR}" ./gh-pages.zip
-          # ${ZIPTEMP}/pysumreg-gh-pages/
           pushd "${TEMPDIR}/pysumreg-gh-pages"
           tar cf - * | (cd .. && tar xf -)
           cd ..
@@ -85,6 +83,9 @@ jobs:
           touch .nojekyll
           ls -lAFgh
           popd
+
+          # make the switcher file
+          python ./.github/make_switcher.py | tee docs/source/_static/switcher.json
 
       - name: Sphinx
         run: |
@@ -101,12 +102,6 @@ jobs:
 
           # get the redirect page
           cp ./.github/index.html "${TEMPDIR}"
-
-          # make the switcher file
-          python ./.github/make_switcher.py > "${TEMPDIR}/_static/switcher.json"
-          cat "${TEMPDIR}/_static/switcher.json"
-          # mkdir "${TEMPDIR}/_static"
-          # cp ./docs/source/_static/switcher.json "${TEMPDIR}/_static"
 
           # diagnostic
           ls -lAFgh "${TEMPDIR}"

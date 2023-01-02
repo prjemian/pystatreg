@@ -21,8 +21,8 @@ releases = """
     1.0.0
 """.split()
 
-switcher = [dict(version=r, url=f"{BASE_URL}/{r}") for r in releases]
-switcher[0]["name"] = f"{releases[0]} (latest)"
+switcher = [dict(name=r, version=r, url=f"{BASE_URL}/{r}") for r in releases]
+switcher[0]["name"] += " (latest release)"
 
 if ".dev" in version:
     switcher.insert(
@@ -30,7 +30,8 @@ if ".dev" in version:
         dict(
             name=f"{version} (development)",
             version="dev",
-            url=f"{BASE_URL}/{version}"
+            # url=f"{BASE_URL}/{version}"
+            url=f"{BASE_URL}/dev"
         )
     )
 
