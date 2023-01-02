@@ -69,11 +69,26 @@ jobs:
           echo "TEMPDIR=${TEMPDIR}"
           echo "VERSION=${VERSION}"
 
+      - name: Get existing gh-pages branch
+        run: |
+          wget https://github.com/prjemian/pysumreg/archive/refs/heads/gh-pages.zip
+          # export ZIPTEMP=$(mktemp -d)
+          unzip -q -o -d "${TEMPDIR}" ./gh-pages.zip
+          # ${ZIPTEMP}/pysumreg-gh-pages/
+          pushd "${TEMPDIR}/pysumreg-gh-pages"
+          tar cf - * | (cd .. && tar xf -)
+          cd ..
+          /bin/rm -rf ./pysumreg-gh-pages
+          /bin/rm -rf dev *.dev*
+          touch .nojekyll
+          ls -lAFgh
+          popd
+
       - name: Sphinx
         run: |
           sphinx-build -M html ./docs/source "${TEMPDIR}/build"
 
-      - name: Build gh-pages content
+      - name: Add new gh-pages content
         run: |
           # get the new docs
           pushd "${TEMPDIR}"
@@ -82,17 +97,19 @@ jobs:
           /bin/rm -rf ./build
           popd
 
-          # get the redirect page
-          # TODO: change "/dev" to "/latest"
-          cp ./.github/index.html "${TEMPDIR}"
+          # # get the redirect page
+          # # TODO: change "/dev" to "/latest"
+          # cp ./.github/index.html "${TEMPDIR}"
 
-          # make the switcher file
-          mkdir "${TEMPDIR}/_static"
-          # TODO: build this file dynamically
-          cp ./docs/source/_static/switcher.json "${TEMPDIR}/_static"
+          # # TODO: build the switcher file dynamically
+          # # make the switcher file
+          # mkdir "${TEMPDIR}/_static"
+          # cp ./docs/source/_static/switcher.json "${TEMPDIR}/_static"
 
           # diagnostic
           ls -lAFgh "${TEMPDIR}"
+          cat "${TEMPDIR}/index.html"
+          cat "${TEMPDIR}/_static/switcher.json"
 
       - name: Deploy (to gh-pages branch) only on demand
         uses: peaceiris/actions-gh-pages@v3
