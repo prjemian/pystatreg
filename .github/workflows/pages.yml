@@ -97,9 +97,8 @@ jobs:
           /bin/rm -rf ./build
           popd
 
-          # # get the redirect page
-          # # TODO: change "/dev" to "/latest"
-          # cp ./.github/index.html "${TEMPDIR}"
+          # get the redirect page
+          cp ./.github/index.html "${TEMPDIR}"
 
           # # TODO: build the switcher file dynamically
           # # make the switcher file
