@@ -129,6 +129,6 @@ This package may be installed by any of these commands:
 | [![Python](https://img.shields.io/pypi/pyversions/pysumreg.svg)](https://pypi.python.org/pypi/pysumreg) | ![Unit Tests](https://github.com/prjemian/pysumreg/workflows/Unit%20Tests/badge.svg) | [![Coverage Status](https://coveralls.io/repos/github/prjemian/pysumreg/badge.svg?branch=main)](https://coveralls.io/github/prjemian/pysumreg?branch=main) |
 
 - documentation:
-    https://prjemian.github.io/pysumreg
+    https://prjemian.github.io/pysumreg/latest
 - source:
     https://github.com/prjemian/pysumreg

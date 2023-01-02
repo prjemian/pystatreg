@@ -57,7 +57,6 @@ html_theme_options = {
       "image_light": "pysumreg-logo-dark.png",
    },
    "switcher": {
-      # "json_url": "https://raw.githubusercontent.com/prjemian/pysumreg/main/docs/source/_static/switcher.json",
       "json_url": "https://prjemian.github.io/pysumreg/_static/switcher.json",
       "version_match": "dev" if ".dev" in release else release,
    },
