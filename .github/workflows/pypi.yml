@@ -7,7 +7,8 @@ defaults:
     shell: bash -l {0}
 
 jobs:
-  build-pypi:
+
+  pypi:
     name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
     runs-on: ubuntu-latest
 

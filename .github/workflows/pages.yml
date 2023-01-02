@@ -25,7 +25,7 @@ defaults:
 
 jobs:
 
-  sphinx-pages:
+  pages:
     runs-on: ubuntu-latest
 
     steps:
