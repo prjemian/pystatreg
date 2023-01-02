@@ -59,10 +59,40 @@ jobs:
           echo "--------------- diagnostic pip list ---------------"
           pip list
 
-      # TODO: could write to tmp directory
+      - name: Make Temporary Directory for Sphinx content
+        run: |
+          echo "TEMPDIR=$(mktemp -d)" >> ${GITHUB_ENV}
+          echo "VERSION=$(./setup.py --version)" >> ${GITHUB_ENV}
+
+      - name: Show Environment variables
+        run: |
+          echo "TEMPDIR=${TEMPDIR}"
+          echo "VERSION=${VERSION}"
+
       - name: Sphinx
         run: |
-          make -C docs html
+          sphinx-build -M html ./docs/source "${TEMPDIR}/build"
+
+      - name: Build gh-pages content
+        run: |
+          # get the new docs
+          pushd "${TEMPDIR}"
+          mv ./build/html "./${VERSION}"
+          ln -s "./${VERSION}" ./dev
+          /bin/rm -rf ./build
+          popd
+
+          # get the redirect page
+          # TODO: change "/dev" to "/latest"
+          cp ./.github/index.html "${TEMPDIR}"
+
+          # make the switcher file
+          mkdir "${TEMPDIR}/_static"
+          # TODO: build this file dynamically
+          cp ./docs/source/_static/switcher.json "${TEMPDIR}/_static"
+
+          # diagnostic
+          ls -lAFgh "${TEMPDIR}"
 
       - name: Deploy (to gh-pages branch) only on demand
         uses: peaceiris/actions-gh-pages@v3
@@ -70,5 +100,5 @@ jobs:
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/build/html
+          publish_dir: "${TEMPDIR}"
           force_orphan: true
