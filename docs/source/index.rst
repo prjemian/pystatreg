@@ -3,10 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-pysumreg
+PySumReg
 =========
 
-Statistics of list of :math:`(x, y)` pairs from calculator-style summation registers.
+Statistics of sequence of :math:`(x, y)` pairs from calculator-style summation registers.
 
 Why use this package?
 ========================
