@@ -52,14 +52,15 @@ today_fmt = "%Y-%m-%d %H:%M"
 html_static_path = ["_static"]
 html_theme = "pydata_sphinx_theme"
 html_theme_options = {
+   "github_url": "https://github.com/prjemian/pysumreg",
    "logo": {
       "image_dark": "pysumreg-logo-dark.png",
       "image_light": "pysumreg-logo-light.png",
    },
+   "navbar_start": ["navbar-logo", "version-switcher"],
    "switcher": {
       "json_url": "https://prjemian.github.io/pysumreg/_static/switcher.json",
       "version_match": "dev" if ".dev" in release else release,
-   },
-   "navbar_start": ["navbar-logo", "version-switcher"]
+   }
 }
 html_title = "PySumReg"
