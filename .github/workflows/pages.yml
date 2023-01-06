@@ -25,7 +25,7 @@ defaults:
 
 jobs:
 
-  pages:
+  docs:
     runs-on: ubuntu-latest
 
     steps:
@@ -63,50 +63,46 @@ jobs:
         run: |
           echo "TEMPDIR=$(mktemp -d)" >> ${GITHUB_ENV}
           echo "VERSION=$(./setup.py --version)" >> ${GITHUB_ENV}
-          echo "LATEST_RELEASE=1.0.4" >> ${GITHUB_ENV}
 
       - name: Show Environment variables
         run: |
           echo "TEMPDIR=${TEMPDIR}"
           echo "VERSION=${VERSION}"
 
-      - name: Get existing gh-pages branch
+      - name: Re-build the master directory (contains all documentation versions)
         run: |
+          cp .github/index.html "${TEMPDIR}"
+
+          cd "${TEMPDIR}"
+          mv build/html "${VERSION}"
+          /bin/rm -rf build
+          ln -s "./${VERSION}" dev
+
+          # add previous documentation (built versions)
           wget https://github.com/prjemian/pysumreg/archive/refs/heads/gh-pages.zip
-          unzip -q -o -d "${TEMPDIR}" ./gh-pages.zip
-          pushd "${TEMPDIR}/pysumreg-gh-pages"
-          tar cf - * | (cd .. && tar xf -)
-          cd ..
-          /bin/rm -rf ./pysumreg-gh-pages
-          /bin/rm -rf dev *.dev* latest
-          ln -s "./${LATEST_RELEASE}" ./latest
-          touch .nojekyll
-          ls -lAFgh
-          popd
+          unzip -q gh-pages.zip
+          /bin/rm gh-pages.zip
 
-          # make the switcher file
-          python ./.github/make_switcher.py | tee docs/source/_static/switcher.json
+          source ../define_versions.sh
+          for v in ${versions}
+            do
+                if [ -d "pysumreg-gh-pages/${v}" ]
+                  then
+                      echo "directory 'pysumreg-gh-pages/${v}' exists"
+                      mv "pysumreg-gh-pages/${v}" ./
+                      latest="${v}"
+                  fi
+            done
+          echo "latest=${latest}"
+          ln -s "./${latest}" ./latest
 
-      - name: Sphinx
+          /bin/rm -rf pysumreg-gh-pages
+
+      - name: Info
         run: |
-          sphinx-build -M html ./docs/source "${TEMPDIR}/build"
-
-      - name: Add new gh-pages content
-        run: |
-          # get the new docs
-          pushd "${TEMPDIR}"
-          mv ./build/html "./${VERSION}"
-          ln -s "./${VERSION}" ./dev
-          /bin/rm -rf ./build
-          popd
-
-          # get the redirect page
-          cp ./.github/index.html "${TEMPDIR}"
-
-          # diagnostic
-          ls -lAFgh "${TEMPDIR}"
-          cat "${TEMPDIR}/index.html"
-          cat "${TEMPDIR}/_static/switcher.json"
+          cd "${TEMPDIR}"
+          echo "pwd=$(pwd)"
+          ls -laFGh
 
       - name: Deploy (to gh-pages branch) only on demand
         uses: peaceiris/actions-gh-pages@v3
