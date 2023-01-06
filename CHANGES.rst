@@ -23,7 +23,7 @@ Change History
 1.0.5
 ******
 
-release expected 2023-02-01
+released 2023-01-06
 
 Enhancements
 --------------
