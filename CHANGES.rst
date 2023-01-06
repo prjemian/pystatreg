@@ -20,6 +20,16 @@ Change History
 
    release expected TBA
 
+1.0.5
+******
+
+release expected 2023-02-01
+
+Enhancements
+--------------
+
+Provide older documentation versions from dropdown menu.
+
 1.0.4
 ******
 

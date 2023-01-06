@@ -1,0 +1,25 @@
+/* Style the link marked: latest */
+.version-switcher__container a[data-version-name*="latest"] {
+    background-color: lightgreen;
+ }
+ 
+ /* Style the link marked: dev */
+ .version-switcher__container a[data-version="dev"] {
+    background-color: var(--pst-color-secondary);
+ }
+ 
+ 
+ /* Style the link marked: redirect */
+ .version-switcher__container a[data-version="redirect"] {
+    background-color: bisque;
+ }
+ 
+ /* Style all links with a specific subset of versions */
+ .version-switcher__container a[data-version="1.0.3"] {
+    background-color: rgb(247, 231, 233);
+ }
+ .version-switcher__container a[data-version="1.0.3"],
+ .version-switcher__container a[data-version="1.0.1"],
+ .version-switcher__container a[data-version="1.0.0"] {
+    background-color: lightpink;
+ }
