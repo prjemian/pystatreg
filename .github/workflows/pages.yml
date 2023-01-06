@@ -113,19 +113,19 @@ jobs:
           echo "storage space used by each item in ${TMP_DIR}"
           du -shc *
 
-      - name: move to source directory
-        run: |
-          echo   
-          mkdir build
-          /bin/rm -rf build/html
-          mkdir build/html
+      # - name: move to source directory
+      #   run: |
+      #     echo   
+      #     mkdir build
+      #     /bin/rm -rf build/html
+      #     mkdir build/html
 
-          cd "${TMP_DIR}"
-          tar cf - * | (cd "${SRC_DIR}/build/html" && tar xf -)
+      #     cd "${TMP_DIR}"
+      #     tar cf - * | (cd "${SRC_DIR}/build/html" && tar xf -)
 
-          cd "${SRC_DIR}"
-          echo "pwd=$(pwd)"
-          ls -laFGh ./build/html
+      #     cd "${SRC_DIR}"
+      #     echo "pwd=$(pwd)"
+      #     ls -laFGh ./build/html
 
       - name: Deploy (to gh-pages branch) only on demand
         uses: peaceiris/actions-gh-pages@v3
