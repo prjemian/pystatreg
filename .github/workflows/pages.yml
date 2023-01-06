@@ -71,6 +71,10 @@ jobs:
           echo "TMP_DIR=${TMP_DIR}"
           echo "VERSION=${VERSION}"
 
+      - name: Sphinx
+        run: |
+          sphinx-build -M html ./docs/source "${TMP_DIR}/build"
+
       - name: Re-build the master directory (contains all documentation versions)
         run: |
           cp .github/index.html "${TMP_DIR}"
