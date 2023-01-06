@@ -55,7 +55,7 @@ jobs:
 
       - name: Install Sphinx build requirements
         run: |
-          pip install setuptools-scm sphinx pydata-sphinx-theme
+          pip install setuptools-scm "sphinx<6" pydata-sphinx-theme
           echo "--------------- diagnostic pip list ---------------"
           pip list
 
@@ -114,7 +114,6 @@ jobs:
           du -shc *
           echo TMP_DIR: ${{ env.TMP_DIR }}
 
-      # FIXME: v3.9.1 publishes content from main branch to gh-pages branch now!
       - name: Deploy (to gh-pages branch) only on demand
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event.inputs.deploy }}
