@@ -61,20 +61,21 @@ jobs:
 
       - name: Make Temporary Directory for Sphinx content
         run: |
-          echo "TEMPDIR=$(mktemp -d)" >> ${GITHUB_ENV}
+          echo "SRC_DIR=$(pwd)" >> ${GITHUB_ENV}
+          echo "TMP_DIR=$(mktemp -d)" >> ${GITHUB_ENV}
           echo "VERSION=$(./setup.py --version)" >> ${GITHUB_ENV}
 
       - name: Show Environment variables
         run: |
-          echo "TEMPDIR=${TEMPDIR}"
+          echo "SRC_DIR=${SRC_DIR}"
+          echo "TMP_DIR=${TMP_DIR}"
           echo "VERSION=${VERSION}"
 
       - name: Re-build the master directory (contains all documentation versions)
         run: |
-          cp .github/index.html "${TEMPDIR}"
-          export SRC_DIR=$(pwd)
+          cp .github/index.html "${TMP_DIR}"
 
-          cd "${TEMPDIR}"
+          cd "${TMP_DIR}"
           mv build/html "${VERSION}"
           /bin/rm -rf build
           ln -s "./${VERSION}" dev
@@ -102,10 +103,25 @@ jobs:
 
       - name: Info
         run: |
-          cd "${TEMPDIR}"
+          cd "${TMP_DIR}"
           echo "pwd=$(pwd)"
           ls -laFGh
+          echo "storage space used by each item in ${TMP_DIR}"
           du -shc *
+
+      - name: move to source directory
+        run: |
+          echo   
+          mkdir build
+          /bin/rm -rf build/html
+          mkdir build/html
+
+          cd "${TMP_DIR}"
+          tar cf - * | (cd "${SRC_DIR}/build/html" && tar xf -)
+
+          cd "${SRC_DIR}"
+          echo "pwd=$(pwd)"
+          ls -laFGh ./build/html
 
       - name: Deploy (to gh-pages branch) only on demand
         uses: peaceiris/actions-gh-pages@v3
@@ -113,5 +129,5 @@ jobs:
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: "${{ env.TEMPDIR }}"
+          publish_dir: build/html
           force_orphan: true
