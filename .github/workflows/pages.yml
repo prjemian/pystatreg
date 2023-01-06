@@ -76,23 +76,13 @@ jobs:
           mv build/html "${VERSION}"
           /bin/rm -rf build
           ln -s "./${VERSION}" dev
+
           # add previous documentation (built versions)
-          # update the switcher.json file before a new release
           wget https://github.com/prjemian/pysumreg/archive/refs/heads/gh-pages.zip
           unzip -q gh-pages.zip
           /bin/rm gh-pages.zip
-          # List of documentation versions to keep.
-          # (should include all versions in switcher.json)
-          # Adding future versions will capture that version
-          # once it appears in the downloaded gh-pages branch.
-          versions=
-          versions+=" 1.0.0"
-          versions+=" 1.0.1"
-          versions+=" 1.0.3"
-          versions+=" 1.0.4"
-          versions+=" 1.0.5"
-          versions+=" 1.0.6"
-          versions+=" 1.0.7"
+
+          source ../define_versions.sh
           for v in ${versions}
             do
                 if [ -d "pysumreg-gh-pages/${v}" ]
@@ -104,7 +94,9 @@ jobs:
             done
           echo "latest=${latest}"
           ln -s "./${latest}" ./latest
+
           /bin/rm -rf pysumreg-gh-pages
+
       - name: Info
         run: |
           cd "${TEMPDIR}"
