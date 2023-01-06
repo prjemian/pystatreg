@@ -129,5 +129,6 @@ jobs:
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/html
+          publish_dir: ${{ secrets.TMP_DIR }}
           force_orphan: true
+          # publish_dir: build/html
