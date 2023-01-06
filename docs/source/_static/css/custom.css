@@ -8,12 +8,8 @@
     background-color: var(--pst-color-secondary);
  }
  
- /* Style all links with a specific subset of versions */
- .version-switcher__container a[data-version="1.0.4"] {
-    background-color: bisque;
- }
- .version-switcher__container a[data-version="1.0.3"],
- .version-switcher__container a[data-version="1.0.1"],
- .version-switcher__container a[data-version="1.0.0"] {
+ /* doc versions before switcher colored lightpink */
+ .version-switcher__container a[data-version-name*="no version dropdown"] {
     background-color: lightpink;
  }
+ 
