@@ -27,10 +27,11 @@ switcher_json_url = (
     "main/docs/source"
     f"/{switcher_file}"
 )
-switcher_version_list = [
-    v["version"]  # to match with ``release`` (above)
-    for v in json.load(open(switcher_file))
-]
+with open(switcher_file) as fp:
+   switcher_version_list = [
+      v["version"]  # to match with ``release`` (above)
+      for v in json.load(fp)
+   ]
 # fmt: on
 
 root_path = pathlib.Path(__file__).parent.parent.parent
