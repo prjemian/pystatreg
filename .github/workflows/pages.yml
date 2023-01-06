@@ -112,13 +112,14 @@ jobs:
           ls -laFGh
           echo storage space used by each item in ${TMP_DIR}
           du -shc *
+          echo TMP_DIR: ${{ env.TMP_DIR }}
 
-      # FIXME: v3.9.1 publishes main branch now!
+      # FIXME: v3.9.1 publishes content from main branch to gh-pages branch now!
       - name: Deploy (to gh-pages branch) only on demand
-        uses: peaceiris/actions-gh-pages@v3.9.0
+        uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event.inputs.deploy }}
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ secrets.TMP_DIR }}
+          publish_dir: ${{ env.TMP_DIR }}
           force_orphan: true
