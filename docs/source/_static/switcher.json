@@ -1,15 +1,15 @@
 [
     {
-        "name": "1.0.5 (development)",
+        "name": "development (main branch)",
         "version": "dev",
         "url": "https://prjemian.github.io/pysumreg/dev/"
     },
     {
-        "version": "1.0.5",
+        "version": "1.0.5 (latest release)",
         "url": "https://prjemian.github.io/pysumreg/1.0.5/"
     },
     {
-        "name": "1.0.4 (latest release)",
+        "name": "1.0.4",
         "version": "1.0.4",
         "url": "https://prjemian.github.io/pysumreg/1.0.4/"
     },
