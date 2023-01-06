@@ -72,6 +72,7 @@ jobs:
       - name: Re-build the master directory (contains all documentation versions)
         run: |
           cp .github/index.html "${TEMPDIR}"
+          export SRC_DIR=$(pwd)
 
           cd "${TEMPDIR}"
           mv build/html "${VERSION}"
@@ -83,7 +84,8 @@ jobs:
           unzip -q gh-pages.zip
           /bin/rm gh-pages.zip
 
-          source ../define_versions.sh
+          source "${SRC_DIR}/.github/define_versions.sh"
+          echo "versions=${versions}"
           for v in ${versions}
             do
                 if [ -d "pysumreg-gh-pages/${v}" ]
@@ -103,6 +105,7 @@ jobs:
           cd "${TEMPDIR}"
           echo "pwd=$(pwd)"
           ls -laFGh
+          du -shc *
 
       - name: Deploy (to gh-pages branch) only on demand
         uses: peaceiris/actions-gh-pages@v3
