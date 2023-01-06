@@ -20,6 +20,11 @@ Change History
 
    release expected TBA
 
+    1.0.6 (developing)
+    ******************
+
+    release expected TBA
+
 1.0.5
 ******
 
@@ -29,6 +34,11 @@ Enhancements
 --------------
 
 Provide older documentation versions from dropdown menu.
+
+Fixes
+--------------
+
+Fixed "no content in dropdown menu" by pinning Sphinx<6.
 
 1.0.4
 ******
