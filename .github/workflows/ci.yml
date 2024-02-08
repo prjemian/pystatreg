@@ -16,24 +16,6 @@ defaults:
 
 jobs:
 
-  # lint:
-  #   name: Code style
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - uses: actions/checkout@v2
-
-  #     - uses: actions/setup-python@v2
-
-  #     - name: Install Dependencies
-  #       run: |
-  #         python -m pip install --upgrade pip
-  #         pip install flake8
-
-  #     - name: Run flake8
-  #       run: |
-  #         flake8
-
   matrix:
     name: Python ${{ matrix.python-version }}
     # needs: lint
@@ -49,7 +31,7 @@ jobs:
       max-parallel: 5
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Install pip
       run: |
