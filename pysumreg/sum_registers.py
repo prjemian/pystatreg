@@ -180,7 +180,9 @@ class SummationRegisters:
 
         .. math:: \sigma_x^2 = {{\sum{x^2} - \bar{x}\sum{x}} \over {n-1}}
         """
-        return math.sqrt((self.XX - self.mean_x * self.X) / (self.n - 1))
+        numerator = max(0, self.XX - self.mean_x * self.X)
+        denominator = self.n - 1
+        return math.sqrt(numerator / denominator)
 
     @property
     def stddev_y(self):
@@ -189,7 +191,9 @@ class SummationRegisters:
 
         .. math:: \sigma_y^2 = {{\sum{y^2} - \bar{y}\sum{y}} \over {n-1}}
         """
-        return math.sqrt((self.YY - self.mean_y * self.Y) / (self.n - 1))
+        numerator = max(0, self.YY - self.mean_y * self.Y)
+        denominator = self.n - 1
+        return math.sqrt(numerator / denominator)
 
     @property
     def slope(self):

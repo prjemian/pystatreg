@@ -45,6 +45,7 @@ jobs:
           - "3.9"
           - "3.10"  # not 3.10 which truncates to 3.1
           - "3.11"
+          - "3.12"
       max-parallel: 5
 
     steps:
@@ -68,6 +69,7 @@ jobs:
 
     - name: Run tests with pytest & coverage
       run: |
+        set -vxeuo pipefail
         coverage run --concurrency=thread --parallel-mode -m pytest -vvv .
         coverage combine
         coverage report --precision 3
