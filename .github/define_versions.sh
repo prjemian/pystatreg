@@ -12,11 +12,13 @@ versions+=" 1.0.0"
 versions+=" 1.0.1"
 versions+=" 1.0.3"
 versions+=" 1.0.4"
-
-# future versions (only expected release tags)
 versions+=" 1.0.5"
 versions+=" 1.0.6"
+
+# future versions (only expected release tags)
 versions+=" 1.0.7"
+versions+=" 1.0.8"
+versions+=" 1.0.9"
 
 export versions
 
