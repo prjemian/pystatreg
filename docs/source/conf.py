@@ -3,10 +3,10 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-import configparser
 import json
 import pathlib
 import sys
+import tomllib
 
 sys.path.insert(0, str(pathlib.Path().absolute().parent.parent))
 import pysumreg
@@ -35,13 +35,13 @@ with open(switcher_file) as fp:
 # fmt: on
 
 root_path = pathlib.Path(__file__).parent.parent.parent
-parser = configparser.ConfigParser()
-parser.read(root_path / "setup.cfg")
-metadata = parser["metadata"]
+with open(root_path / "pyproject.toml", "rb") as fp:
+    toml = tomllib.load(fp)
+metadata = toml["project"]
 
 project = metadata["name"]
-copyright = metadata["copyright"]
-author = metadata["author"]
+copyright = toml["tool"]["copyright"]["copyright"]
+author = metadata["authors"][0]["name"]
 description = metadata["description"]
 rst_prolog = f".. |author| replace:: {author}"
 github_url = f"https://github.com/{gh_org}/{project}",
