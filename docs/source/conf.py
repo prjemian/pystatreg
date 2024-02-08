@@ -40,7 +40,7 @@ with open(root_path / "pyproject.toml", "rb") as fp:
 metadata = toml["project"]
 
 project = metadata["name"]
-copyright = metadata["copyright"]
+copyright = toml["tool"]["copyright"]["copyright"]
 author = metadata["authors"][0]["name"]
 description = metadata["description"]
 rst_prolog = f".. |author| replace:: {author}"

@@ -5,11 +5,13 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
+[tool.copyright]
+copyright = "2014-2024, Pete R. Jemian"
+
 [project]
 name = "pysumreg"
 description = "Statistics of list of (x, y) pairs from calculator-style summation registers."
 # dependencies = []
-copyright = "2014-2024, Pete R. Jemian"
 authors = [
   { name="Pete R. Jemian", email="prjemian+pysumreg@gmail.com" },
 ]
