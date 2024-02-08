@@ -60,7 +60,7 @@ jobs:
 
     - name: Install unit test requirements
       run: |
-        pip install coverage coveralls pytest "setuptools>=61" "setuptools-scm>=8"
+        pip install coverage coveralls pytest "setuptools>=64" "setuptools-scm>=8"
 
     - name: Install package
       run: |
