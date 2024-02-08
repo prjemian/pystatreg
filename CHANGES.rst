@@ -30,6 +30,11 @@ Fixes
 
 * Fixed *math domain error* in standard deviation functions.
 
+Maintenance
+--------------
+
+* Add Python 3.12
+
 1.0.5
 ******
 
