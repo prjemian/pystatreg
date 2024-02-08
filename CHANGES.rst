@@ -20,10 +20,15 @@ Change History
 
    release expected TBA
 
-    1.0.6 (developing)
-    ******************
+1.0.6 (developing)
+******************
 
-    release expected TBA
+release expected TBA
+
+Fixes
+--------------
+
+* Fixed *math domain error* in standard deviation functions.
 
 1.0.5
 ******
