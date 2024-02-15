@@ -23,7 +23,7 @@ Change History
 1.0.6 (developing)
 ******************
 
-release expected TBA
+released 2024-02-15
 
 Fixes
 --------------
@@ -34,6 +34,7 @@ Maintenance
 --------------
 
 * Add Python 3.12
+* Drop old versions (and versions switcher) from documentation.
 
 1.0.5
 ******
