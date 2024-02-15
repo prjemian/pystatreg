@@ -54,7 +54,7 @@ jobs:
           pip install --no-deps -e . -vv
 
       - name: Sphinx
-        run: TZ=UTC e -C docs clean html
+        run: TZ=UTC make -C docs clean html
 
       - name: Deploy (to gh-pages branch) only on demand
         uses: peaceiris/actions-gh-pages@v3
