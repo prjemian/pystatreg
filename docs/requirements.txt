@@ -1,0 +1,3 @@
+pydata-sphinx-theme
+setuptools-scm
+sphinx <6

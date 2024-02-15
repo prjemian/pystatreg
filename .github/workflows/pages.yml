@@ -26,11 +26,18 @@ defaults:
 jobs:
 
   docs:
+    name: Publish documentation
     runs-on: ubuntu-latest
 
     steps:
 
-      - uses: actions/setup-python@v5
+      - name: Deploy Information
+        if: ${{ github.event.inputs.deploy }}
+        run: |
+          echo "The docs will be published from this workflow run."
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -39,80 +46,15 @@ jobs:
         with:
           fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
 
-      - name: Info
-        run: |
-          echo $(pwd)
-          ls -lAFgh
-
-      - name: Install package
+      - name: Install Sphinx build requirements
+        run: pip install  -r ./docs/requirements.txt
+    
+      - name: Install our package
         run: |
           pip install --no-deps -e . -vv
 
-      - name: Diagnostics
-        run: |
-          python -m pip list
-          python -c "import pysumreg; print(f'{pysumreg.__version__=}')"
-
-      - name: Install Sphinx build requirements
-        run: |
-          pip install setuptools-scm "sphinx<6" pydata-sphinx-theme
-          echo "--------------- diagnostic pip list ---------------"
-          pip list
-
-      - name: Make Temporary Directory for Sphinx content
-        run: |
-          echo "SRC_DIR=$(pwd)" >> ${GITHUB_ENV}
-          echo "TMP_DIR=$(mktemp -d)" >> ${GITHUB_ENV}
-          echo "VERSION=$(./setup.py --version)" >> ${GITHUB_ENV}
-
-      - name: Show Environment variables
-        run: |
-          echo "SRC_DIR=${SRC_DIR}"
-          echo "TMP_DIR=${TMP_DIR}"
-          echo "VERSION=${VERSION}"
-
       - name: Sphinx
-        run: |
-          sphinx-build -M html ./docs/source "${TMP_DIR}/build"
-
-      - name: Re-build the master directory (contains all documentation versions)
-        run: |
-          cp .github/index.html "${TMP_DIR}"
-
-          cd "${TMP_DIR}"
-          mv build/html "${VERSION}"
-          /bin/rm -rf build
-          ln -s "./${VERSION}" dev
-
-          # add previous documentation (built versions)
-          wget https://github.com/prjemian/pysumreg/archive/refs/heads/gh-pages.zip
-          unzip -q gh-pages.zip
-          /bin/rm gh-pages.zip
-
-          source "${SRC_DIR}/.github/define_versions.sh"
-          echo "versions=${versions}"
-          for v in ${versions}
-            do
-                if [ -d "pysumreg-gh-pages/${v}" ]
-                  then
-                      echo "directory 'pysumreg-gh-pages/${v}' exists"
-                      mv "pysumreg-gh-pages/${v}" ./
-                      latest="${v}"
-                  fi
-            done
-          echo "latest=${latest}"
-          ln -s "./${latest}" ./latest
-
-          /bin/rm -rf pysumreg-gh-pages
-
-      - name: Info
-        run: |
-          cd "${TMP_DIR}"
-          echo "pwd=$(pwd)"
-          ls -laFGh
-          echo storage space used by each item in ${TMP_DIR}
-          du -shc *
-          echo TMP_DIR: ${{ env.TMP_DIR }}
+        run: TZ=UTC e -C docs clean html
 
       - name: Deploy (to gh-pages branch) only on demand
         uses: peaceiris/actions-gh-pages@v3
