@@ -15,13 +15,13 @@ Change History
 ##############
 
 ..
-   1.0.
-   ******
+   1.0.7 (developing)
+   ************************
 
    release expected TBA
 
-1.0.6 (developing)
-******************
+1.0.6
+*****
 
 released 2024-02-15
 
