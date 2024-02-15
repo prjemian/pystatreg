@@ -9,7 +9,7 @@ import sys
 import tomllib
 
 sys.path.insert(0, str(pathlib.Path().absolute().parent.parent))
-import pysumreg
+import pysumreg  # noqa
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -18,21 +18,6 @@ gh_org = "prjemian"
 project = "pysumreg"
 release = pysumreg.__version__
 version = ".".join(release.split(".")[:2])
-
-# fmt: off
-switcher_file = "_static/switcher.json"
-switcher_json_url = (
-    "https://raw.githubusercontent.com/"
-    f"{gh_org}/{project}/"
-    "main/docs/source"
-    f"/{switcher_file}"
-)
-with open(switcher_file) as fp:
-   switcher_version_list = [
-      v["version"]  # to match with ``release`` (above)
-      for v in json.load(fp)
-   ]
-# fmt: on
 
 root_path = pathlib.Path(__file__).parent.parent.parent
 with open(root_path / "pyproject.toml", "rb") as fp:
@@ -78,11 +63,6 @@ html_theme_options = {
    "logo": {
       "image_dark": "pysumreg-logo-dark.png",
       "image_light": "pysumreg-logo-light.png",
-   },
-   "navbar_start": ["navbar-logo", "version-switcher"],
-   "switcher": {
-      "json_url": switcher_json_url,
-      "version_match": release if release in switcher_version_list else "dev"
    }
 }
 html_title = "PySumReg"

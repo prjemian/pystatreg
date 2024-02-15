@@ -2,7 +2,7 @@
 
 """Configuration of pysumreg package."""
 
-from .sum_registers import SummationRegisters
+from .sum_registers import SummationRegisters  # noqa
 
 try:
     from setuptools_scm import get_version
