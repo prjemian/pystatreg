@@ -57,7 +57,7 @@ jobs:
         run: TZ=UTC make -C docs clean html
 
       - name: Deploy (to gh-pages branch) only on demand
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         if: ${{ github.event.inputs.deploy }}
         with:
           publish_branch: gh-pages
