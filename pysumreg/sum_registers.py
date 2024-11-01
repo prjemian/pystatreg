@@ -73,7 +73,7 @@ class SummationRegisters:
         self.clear()
 
     def clear(self):
-        """Clear the :math:`\sum{}` summation registers."""
+        r"""Clear the :math:`\sum{}` summation registers."""
         self.n = 0
         self.X = 0
         self.Y = 0
@@ -100,7 +100,7 @@ class SummationRegisters:
             self.x_at_max_y = x
 
     def add(self, x, y):
-        """:math:`\sum{+}`: Add :math:`(x, y)` ordered pair to the registers."""
+        r""":math:`\sum{+}`: Add :math:`(x, y)` ordered pair to the registers."""
         self.n += 1
         self.X += x
         self.Y += y
@@ -112,7 +112,7 @@ class SummationRegisters:
         self._assess_extrema(x, y)
 
     def subtract(self, x, y):
-        """:math:`\sum{-}`: Subtract :math:`(x, y)` ordered pair from the registers."""
+        r""":math:`\sum{-}`: Subtract :math:`(x, y)` ordered pair from the registers."""
         self.n -= 1
         self.X -= x
         self.Y -= y
