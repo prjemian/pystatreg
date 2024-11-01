@@ -15,10 +15,26 @@ Change History
 ##############
 
 ..
-   1.0.7 (developing)
-   ************************
+    1.0.8 (developing)
+    ************************
 
-   release expected TBA
+    release expected TBA
+
+1.0.7
+*****
+
+released 2024-11-01
+
+Fixes
+--------------
+
+* Preserve LaTeX formatting in docstrings.
+
+Maintenance
+--------------
+
+* Add testing with Python 3.13
+* Drop testing with Python 3.8
 
 1.0.6
 *****
