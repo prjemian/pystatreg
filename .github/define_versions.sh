@@ -14,9 +14,9 @@ versions+=" 1.0.3"
 versions+=" 1.0.4"
 versions+=" 1.0.5"
 versions+=" 1.0.6"
+versions+=" 1.0.7"
 
 # future versions (only expected release tags)
-versions+=" 1.0.7"
 versions+=" 1.0.8"
 versions+=" 1.0.9"
 
