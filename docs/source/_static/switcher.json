@@ -5,8 +5,12 @@
         "url": "https://prjemian.github.io/pysumreg/dev/"
     },
     {
-        "version": "1.0.6 (latest release)",
-        "url": "https://prjemian.github.io/pysumreg/1.0.56/"
+        "version": "1.0.7 (latest release)",
+        "url": "https://prjemian.github.io/pysumreg/1.0.7/"
+    },
+    {
+        "version": "1.0.6",
+        "url": "https://prjemian.github.io/pysumreg/1.0.6/"
     },
     {
         "version": "1.0.5",
