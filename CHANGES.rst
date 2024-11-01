@@ -20,21 +20,21 @@ Change History
 
     release expected TBA
 
-    1.0.7
-    *****
+1.0.7
+*****
 
-    released 2024-11-01
+released 2024-11-01
 
-    Fixes
-    --------------
+Fixes
+--------------
 
-    * Preserve LaTeX formatting in docstrings.
+* Preserve LaTeX formatting in docstrings.
 
-    Maintenance
-    --------------
+Maintenance
+--------------
 
-    * Add testing with Python 3.13
-    * Drop testing with Python 3.8
+* Add testing with Python 3.13
+* Drop testing with Python 3.8
 
 1.0.6
 *****
