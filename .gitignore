@@ -134,3 +134,7 @@ dmypy.json
 _version.py
 
 _dev_*
+
+# pixi environments
+.pixi
+*.egg-info
